@@ -1,0 +1,2 @@
+1575302754&84104&MINIK_CLIENT_SONG_PLAY_OPERATE_REQ&{"songid": "lx138872", "mid": 84104, "optrate_type": 0, "uid": 49915617, "consume_type": 0, "play_time": 0, "dur_time": 0, "session_id": 34448, "songname": "Babe", "pkg_id": 2, "order_id": "W20191202234311U49915623M84104"}&3.0.0.80&2.4.4.06
+1666431333934&42446&MINIK_CLIENT_SONG_PLAY_OPERATE_REQ&{"songid":"10001382","mid":42446,"optrate_type":0,"uid":15260185,"consume_type":0,"play_time":0,"dur_time":0,"session_id":34448,"songname":"爱情不是偶像剧","pkg_id":0,"order_id":"InsertCoin_144301_MID95596_1_1578191555"}&3.0.1.13&1.0.0.570
