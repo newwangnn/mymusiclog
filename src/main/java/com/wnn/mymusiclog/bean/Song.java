@@ -1,13 +1,14 @@
 package com.wnn.mymusiclog.bean;
 
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 @Data
 @TableName("song")
 public class Song {
-    @TableField("source_id")
+    @TableId("source_id")
     String sourceId               ;//主键ID
     String name                    ;//歌曲名字
     @TableField("other_name")

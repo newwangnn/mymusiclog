@@ -93,7 +93,7 @@ public class KindsOfLogProduce {
                 buffer.append("MINIK_CLIENT_SONG_PLAY_OPERATE_REQ&");
 
                 json.element("songid", songs.get(index).getSourceId());
-                json.element("songname", songs.get(index).getName());
+                json.element("songname", songs.get(index).getName().replace('&',' '));
                 json.element("mid", mid);
 
                 json.element("uid", userAliPays.get(index).getUid());
@@ -112,7 +112,7 @@ public class KindsOfLogProduce {
                 String result = buffer.toString();
                 buffer.delete(0, buffer.length());
 
-                String url ="http://localhost:8080/event/MINIK_CLIENT_SONG_PLAY_OPERATE_REQ";
+                String url ="http://hadoop52:8080/event/MINIK_CLIENT_SONG_PLAY_OPERATE_REQ";
                 HttpHeaders headers = new HttpHeaders();
                 headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
                 MultiValueMap<String, String> map = new LinkedMultiValueMap<>();
@@ -125,6 +125,7 @@ public class KindsOfLogProduce {
 
                 System.out.println(ok);
 
+                Thread.sleep(1000);
 
             }
 

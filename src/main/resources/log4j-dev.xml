@@ -4,9 +4,30 @@
 
     <appender name="userAppend" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <FileNamePattern>D:/log/userlog-%d{yyyy-MM-dd-HH}_%i.log</FileNamePattern>
+            <FileNamePattern>/home/atguigu/mymusic/6stream/playlog/playsong-%d{yyyy-MM-dd-HH}_%i.log</FileNamePattern>
             <MaxHistory>15</MaxHistory>
-            <maxFileSize>1KB</maxFileSize>
+            <maxFileSize>50MB</maxFileSize>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- ConsoleAppender把日志输出到控制台 -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度,%msg：日志消息，%n是换行符-->
+            <pattern>%d{yyyy-MM-dd-HH:mm:ss,SSS}[%thread] %-5level %c - %msg%n</pattern>
+            <!--&lt;!&ndash; 控制台也要使用utf-8，不要使用gbk &ndash;&gt;-->
+            <!--<charset>UTF-8</charset>-->
+        </encoder>
+    </appender>
+
+    <appender name="SystemAppend" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <FileNamePattern>/home/atguigu/mymusic/6stream/systemlog/system-%d{yyyy-MM-dd-HH}_%i.log</FileNamePattern>
+            <MaxHistory>15000</MaxHistory>
+            <maxFileSize>50MB</maxFileSize>
         </rollingPolicy>
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <pattern>%d{yyyy-MM-dd-HH:mm:ss,SSS}[%thread] %-5level %c - %msg%n</pattern>
@@ -14,12 +35,14 @@
     </appender>
 
 
-    <root level="error">
-        <appender-ref ref="userAppend"/>
+
+    <root level="info">
+        <appender-ref ref="SystemAppend"/>
+        <appender-ref ref="STDOUT"/>
     </root>
-    <logger name="com.wnn.mymusiclog.service.SongPlayService" additivity="false">
-        <level value="info"/>
+    <logger name="com.wnn.mymusiclog.service.SongPlayService" level="info" additivity="false">
         <appender-ref ref="userAppend"/>
+        <appender-ref ref="STDOUT"/>
     </logger>
 
 

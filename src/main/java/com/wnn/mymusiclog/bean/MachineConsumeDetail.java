@@ -1,12 +1,14 @@
 package com.wnn.mymusiclog.bean;
 
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 @Data
 @TableName("machine_consume_detail")
 public class MachineConsumeDetail {
+    @TableId
    Integer id              ;//自增唯一ID
    Integer mid             ;//机器ID
     @TableField("p_type")
